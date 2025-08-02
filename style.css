@@ -1,44 +1,29 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    font-family: "Segoe UI",
-    sans-serif;
-}
-.logo {
-    font-size: 3.2rem;
-    color: bisque;
-    font-weight: bolder;
-    font-style: italic;
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .header {
-    background-color: #5b3d59;
+    background-color: #864f4f;
     color: bisque;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.nav button {
-    display: flexbox;
-    gap: 40px;
-    padding: 20px 20px;
-    background-color: bisque;
-    border: none;
-    color: #1c1b1c;;
+.logo {
+    font-size: 3rem;
     font-weight: bolder;
-    font-size: medium;
-    border-radius: 80%;
-    cursor: pointer;
+    font-style: italic;
 }
-.nav button:hover{
-    transform: scale(1.03);
-    background-color: rgb(170, 134, 90);
-}
-.header-right{
+.header-right {
     display: flex;
     align-items: center;
 }
@@ -49,58 +34,49 @@ body{
     outline: none;
     margin-right: 10px;
 }
-.cart-icon{
+.cart-icon {
     font-size: 1.5rem;
     cursor: pointer;
 }
 .bg {
-    background: url('one.jpg') no-repeat center center/cover;
+    background: url('images/two.jpg') no-repeat center center/cover;
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     text-align: center;
     color: white;
-    position: relative;
 }
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5); 
-}   
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
 .content {
     position: relative;
-    right: 22%;
-    top: 0%;
     z-index: 1;
+    right: 20%;
+    font-size: 3rem;
     font-style: italic;
-    font-size: 5rem;
     font-weight: bold;
     color: whitesmoke;
-
 }
 .content h1 {
     font-size: 3rem;
     margin-bottom: 20px;
 }
-.content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
 .btn {
     padding: 12px 25px;
     background: bisque;
-    color: rgb(22, 21, 21);
+    color: #161515;
     font-weight: bolder;
     border: none;
     font-style: italic;
     border-radius: 5px;
-    font-size: 1rem; 
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 .btn:hover {
     background: rgb(170, 134, 90);
@@ -122,9 +98,78 @@ body{
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 .choice-btn:hover {
     background-color: rgb(170, 134, 90);
     transform: scale(1.03);
+}
+.full-width-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 0px; 
+    padding: 150px 150px;
+    background-color: #9a5454;
+    justify-items: center; 
+    align-items: start; 
+}
+.grid-item {
+    background-color: rgb(194, 165, 165);
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 33px;
+    text-align: center;
+    width: 100%; 
+    max-width: 350px; 
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+.grid-item img {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+.grid-item p {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+footer {
+    background-color: #864f4f;
+    color: white;
+    padding: 40px 20px 10px; 
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 20px; 
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
 }
