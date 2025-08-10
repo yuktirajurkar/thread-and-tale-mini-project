@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thread & Tale</title>
+  <style>
+
+    /*Reset and base*/
+  * {
+    box-sizing: border_box;
+    margin: 0;
+    padding:0;
+    font-family:'segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+
+  body{
+    background-color: #fff;
+    background-image:
+        url("one.jpg"),
+        url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/23f0ce24-4780-4c4f-8f59-bafbaadead52.png");
+    color: #fff;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
+    
+    /* Container */
+    .container{
+      width: 90%;
+      max-width: 1200px;
+      background-color: #fff;
+      color: #211a19;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 40px 0 60px 0;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background-color: #d3bd8b;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: 1.2px;
+    }
+
+    header .logo {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+    }
+
+    /* Navigation */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      position: relative;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    nav ul li:hover > a {
+      color: #d4af37;
+    }
+
+    /* Banner */
+    .banner {
+      background-color: #aa9eb0;
+      background-image:
+        url("one.jpg"),
+        url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/23f0ce24-4780-4c4f-8f59-bafbaadead52.png");
+      background-position: top right, bottom left;
+      background-repeat: no-repeat, no-repeat;
+      padding: 2.5rem 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #e3c192;
+    }
+
+    .banner-text {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      max-width: 650px;
+    }
+
+    .banner-text span.highlight {
+      color: #f5deb3;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .banner-images {
+      flex: 1 1 250px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .banner-images img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid #d4af37;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
+      transition: transform 0.25s ease;
+    }
+
+    .banner-images img:hover {
+      transform: scale(1.1);
+      border-color: #f5deb3;
+    }
+
+    /* All Available Jewellery heading */
+    .catalog-header {
+      background-color: #f9f6f2;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd6cc;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #593f31;
+      letter-spacing: 0.05em;
+    }
+
+    /* Catalog grid */
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      gap: 1.5rem 1.5rem;
+      padding: 2rem;
+      background-color: #fff;
+    }
+
+    .item-card {
+      background-color: #fefbf6;
+      border: 1px solid #ddd6cc;
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgb(0 0 0 / 0.08);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .item-card:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 4px;
+      background-color: #fff;
+      border: 1px solid #d4af37;
+    }
+
+    .item-info {
+      margin-top: 0.75rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3rem;
+      font-weight: 600;
+      color: #7d6650;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Online Jewellery Store">
+    <header>
+      <div class="logo" aria-label="Online Jewellery Store logo">Thread & tale</div>
+      <nav aria-label="Primary site navigation">
+        <ul>
+          <li><a href="#" tabindex="0">Home</a></li>
+          <li><a href="#" tabindex="0">Earrings</a></li>
+          <li><a href="#" tabindex="0">Necklaces</a></li>
+          <li><a href="#" tabindex="0">Bracelets</a></li>
+          <li><a href="#" tabindex="0">Rings</a></li>
+          <li><a href="#" tabindex="0">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="banner" aria-label="Store promotional banner">
+      <article class="banner-text">
+        Every jewellery has a story to tell
+        <span class="highlight">Find the right style to reflect your beauty</span>
+      </article>
+      <aside class="banner-images" aria-hidden="true">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8014e3d-71d8-49e8-a391-2ae814dccca2.png" alt="Golden pendant necklace with red emerald jewel and intricate designs" onerror="this.style.display='none'" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d6551f3-fa60-4c72-aeb5-9241bff92427.png" alt="Round gold pendant with engraved floral pattern hanging from a fine gold chain" onerror="this.style.display='none'" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/34f99468-07ee-47e2-9350-62fa5c24e18d.png" alt="Teardrop-shaped gold pendant with a green emerald gemstone dangling on a gold chain" onerror="this.style.display='none'" />
+      </aside>
+    </section>
+
+    <h2 class="catalog-header">ALL AVAILABLE JEWELLERY</h2>
+
+    <section class="catalog" aria-label="Available jewellery collection">
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b8228d08-e4d6-4a67-9959-cbd2c22b7f85.png" alt="Shiny gold ring with multiple diamonds embedded on top" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD RING</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/663281be-f3ae-4b93-9eb5-f4975526c201.png" alt="Elegant twist designed shiny gold hoop earrings" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD EARRINGS</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ee7b6b8e-9bf6-426c-97d5-55b3daf5ef3f.png" alt="Pair of silver stud earrings with sparkling gems" onerror="this.style.display='none'"/>
+        <p class="item-info">SILVER EARRINGS</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bbe619ab-865e-466f-9375-0095c251f709.png" alt="Golden heavy necklace with ruby and diamond stone studding" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD NECKLACE</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/29496b5b-c27a-47cc-b5bd-ffe96c92f5a3.png" alt="Gold chandelier style earrings with intricate gemstone detailing" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD EARRINGS</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/13982d25-2208-4717-9d6f-3859b56e36d8.png" alt="Long heavy gold necklace with designs and emerald stone" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD NECKLACE</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83f445d5-263b-4408-8287-86406a130712.png" alt="Traditional gold mangalsutra necklace with black beads" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD NECKLACE</p>
+      </article>
+
+      <article class="item-card" tabindex="0">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a374942f-42ef-4ca4-b68b-abf03245dc6b.png" alt="Wide gold ring with embedded precious stones and intricate work" onerror="this.style.display='none'"/>
+        <p class="item-info">GOLD RING</p>
+      </article>
+
+    </section>
+  </div>
+</body>
+</html>
+
